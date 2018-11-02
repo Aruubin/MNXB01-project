@@ -1,1 +1,4 @@
+Log for MNXB01 project group A
 
+2/11: First meeting for the group. Stucture and schedule for the project 
+is decided along with the data structure using git.

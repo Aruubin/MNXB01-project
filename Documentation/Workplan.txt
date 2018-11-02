@@ -1,1 +1,26 @@
+Workplan for MNXB01 project group A
 
+Data structure: One person creates a repository to which the others can 
+create pull requests.
+
+Work structure: Each person is in charge of one of the tasks, with meetings 
+where the group can help eachother with difficult parts of each task. 
+The structure of the presentation will be created alongside the coding 
+on the scheduled meetings. Report writing will be carried out individually,
+with correspondence when needed.
+
+Task:
+-The warmest and coldest day of each year
+
+-The temperature for every day of the year
+
+-Comparison of temperature for coastal Visby and inland measurement location
+
+-The mean temperature of each year
+
+
+Planned deadline for code: Friday the 9th with a planned final meeting 
+for the code work 15.00.
+
+
+Scheduled group meetings: Monday the 5th 15.00 and Wednesday the 7th 15.00.
