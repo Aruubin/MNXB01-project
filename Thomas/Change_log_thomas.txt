@@ -1,0 +1,4 @@
+02/11:
+Orginations and setting up git. 
+04/11:
+Tryed to get date, time and temperature from data file. Did not finish.
