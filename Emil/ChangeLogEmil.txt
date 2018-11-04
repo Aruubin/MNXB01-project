@@ -1,0 +1,4 @@
+[02/10/18] Forked our main repository and created a remote upstream to master branch.
+Also created a branch for my work. A directory where my work can be stored was created
+with this ChangeLog in it.
+
