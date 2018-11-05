@@ -24,3 +24,5 @@ for the code work 15.00.
 
 
 Scheduled group meetings: Monday the 5th 15.00 and Wednesday the 7th 15.00.
+
+Update 5/11: Split workload into reading data files and storing data in objects put in trees.

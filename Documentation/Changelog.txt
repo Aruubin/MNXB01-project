@@ -2,3 +2,8 @@ Log for MNXB01 project group A
 
 2/11: First meeting for the group. Stucture and schedule for the project 
 is decided along with the data structure using git.
+
+5/11: Working with reading the reading of the data file, and saving i 
+into objects. These objects are then planned to be put in a tree. 
+From these universal functions, everyone can easily gain the desired 
+data for the different tasks.
