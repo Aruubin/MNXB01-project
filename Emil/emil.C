@@ -44,7 +44,7 @@ void each_day(Int_t year){
 	//while(infile.get(c)){
 		
 	//	if(line_no > 12){
-	//		file << c;
+	//		c >> file;
 	//	}
 		
 	//	if(&c == "\n"){
@@ -59,52 +59,59 @@ void each_day(Int_t year){
 	
 	ifstream file("smhitest.csv");
 	
+	//while(file >> helpString)
+	//{
+	//	if (helpString.find("Tidsutsnitt") != string::npos){
+	//		break;
+	//	}
+	//}
+	
 	while(file >> helpString){
 	// >> month >> helpString >> day >> helpString >> hour >> helpString >> minute >> helpString >> second >> helpString >> temp >> helpString >> quality
 	//while(!file.eof()){
-	
-	//use stoi to convert strings to integers
 		
-		getline(file, strReadYear, '-');
-		getline(file, strMonth, '-');
-		getline(file, strDay, ';');
-		getline(file, strHour, ':');
-		getline(file, strMinute, ':');
-		getline(file, strSecond, ';');
-		getline(file, strTemp, ';');
-		//getline(file, quality, '\n');
-		
-		string s = "12345"; 
-  
-    // object from the class stringstream 
-		stringstream newstr(strReadYear); 
-  
-    // The object has the value 12345 and stream 
-    // it to the integer x 
-		int year1 = 0; 
-		newstr >> year1; 
-		
-		//cout << "\n";
-		//cout << "\n" << strReadYear << "-" << strMonth << "-"	<< strDay << endl;
-		//cout << strHour << ":" << strMinute << ":" << strSecond << endl;
-		//cout << temp << endl;
-		//cout << quality << endl;
-		
-		cout << year1 << endl;
-		
-	//	cout << "hello1" << endl;
-		
-	//	if(readYear == year){
-	//		cout << "hello" << endl;
-	//	}
-		if(file){
-			yearCount ++;
-		}
-		
-		//string cool = "1961-01-01";
-		
-		//if(file >> cool){
-			//break;}
+		//string firstTwo = helpString.substr(0,2);
+		//if(firstTwo == "19" || firstTwo == "20"){
+			
+			//if(helpString.size() > 10){
+			
+				getline(file, strReadYear, '-');
+				getline(file, strMonth, '-');
+				getline(file, strDay, ';');
+				getline(file, strHour, ':');
+				getline(file, strMinute, ':');
+				getline(file, strSecond, ';');
+				getline(file, strTemp, ';');
+				//getline(file, quality, '\n'); 
+		  
+			// object from the class stringstream 
+				//stringstream newstr(strReadYear); 
+		  
+			// The object has the value 12345 and stream 
+			// it to the integer x 
+				//int year1 = 0; 
+				//newstr >> year1; 
+				
+				//cout << "\n";
+				cout << "\n" << strReadYear << "-" << strMonth << "-" << strDay << endl;
+				cout << strHour << ":" << strMinute << ":" << strSecond << endl;
+				cout << strTemp << endl;
+				//cout << quality << endl;
+				
+				//cout << year1 << endl;
+				
+				//cout << strReadYear << endl;
+				
+				if(file){
+					yearCount ++;
+				}
+				
+				//string cool = "1961-01-01";
+				
+				//if(file >> cool){
+					//break;}
+			//}
+		//} 	
 	}
 	
 	file.close();
