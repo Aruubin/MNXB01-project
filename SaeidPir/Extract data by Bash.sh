@@ -9,4 +9,3 @@ cut -b 9-10 a3.txt > day.txt
 cut -b 12-13 a3.txt > time.txt
 cut -b 21-27 a3.txt > temperature.txt
 
-
