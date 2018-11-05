@@ -2,3 +2,7 @@
 Also created a branch for my work. A directory where my work can be stored was created
 with this ChangeLog in it.
 
+[04/11/18] Tried to read in the file that I am to analyze. Mainly focused on deleting
+the first lines that don't have any data in them. Didn't succeed but might try later.
+Moved on to focus on reading in the file and separating the variables. Now have them
+separated in strings, not in integers. Can't get the quality of the data separated.
