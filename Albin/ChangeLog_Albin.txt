@@ -1,3 +1,5 @@
 
 4/11: Creating rough outline for reading the data into more manegable 
 	formats, with objects in a tree structure
+
+6/11: Data cleaning and creating the average temperature for measurements taken during the same day. The TTree idea is at the moment abandoned, as this will introduce too much complexity for the time we have left.
