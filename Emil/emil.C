@@ -74,7 +74,15 @@ void each_day(Int_t year){
 		getline(file, strTemp, ';');
 		//getline(file, quality, '\n');
 		
-		readYear = atoi(strMonth);
+		string s = "12345"; 
+  
+    // object from the class stringstream 
+		stringstream newstr(strReadYear); 
+  
+    // The object has the value 12345 and stream 
+    // it to the integer x 
+		int year1 = 0; 
+		newstr >> year1; 
 		
 		//cout << "\n";
 		//cout << "\n" << strReadYear << "-" << strMonth << "-"	<< strDay << endl;
@@ -82,7 +90,7 @@ void each_day(Int_t year){
 		//cout << temp << endl;
 		//cout << quality << endl;
 		
-		cout << readYear << endl;
+		cout << year1 << endl;
 		
 	//	cout << "hello1" << endl;
 		
