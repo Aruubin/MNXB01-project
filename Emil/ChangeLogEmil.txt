@@ -6,3 +6,8 @@ with this ChangeLog in it.
 the first lines that don't have any data in them. Didn't succeed but might try later.
 Moved on to focus on reading in the file and separating the variables. Now have them
 separated in strings, not in integers. Can't get the quality of the data separated.
+
+[05/11/18] We met with the entire group and tried to solve the problem with reading
+in the files in a general way. We have problems with cutting off unnecassary text to
+get just the data. I will continue trying to solve this in root while others try in
+different ways.

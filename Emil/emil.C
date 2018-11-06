@@ -32,79 +32,54 @@ void each_day(Int_t year){
 	Double_t temp = -1.0;
 	
 	string helpString; //help variable
-	string helpString1;
-	
-	//open input file
-	//ifstream infile("smhi_opendata_Lund.csv");
-	
-	//ofstream file("example.csv");
-	
-	//char c;
-	//Int_t line_no = 1;
-	//while(infile.get(c)){
-		
-	//	if(line_no > 12){
-	//		file << c;
-	//	}
-		
-	//	if(&c == "\n"){
-	//		line_no = line_no + 1;
-	//		cout << "new line" << endl;
-	//	}
-	//}
-	
-	//file.close();
-	
-	//infile.close();
-	
+
 	ifstream file("smhitest.csv");
 	
-	while(file >> helpString){
-	// >> month >> helpString >> day >> helpString >> hour >> helpString >> minute >> helpString >> second >> helpString >> temp >> helpString >> quality
-	//while(!file.eof()){
-	
-	//use stoi to convert strings to integers
-		
+	while(file){
+			
+		//using getline to extract each variable as a string
 		getline(file, strReadYear, '-');
 		getline(file, strMonth, '-');
 		getline(file, strDay, ';');
 		getline(file, strHour, ':');
 		getline(file, strMinute, ':');
 		getline(file, strSecond, ';');
-		getline(file, strTemp, ';');
-		//getline(file, quality, '\n');
-		
-		string s = "12345"; 
-  
-    // object from the class stringstream 
-		stringstream newstr(strReadYear); 
-  
-    // The object has the value 12345 and stream 
-    // it to the integer x 
-		int year1 = 0; 
-		newstr >> year1; 
-		
-		//cout << "\n";
-		//cout << "\n" << strReadYear << "-" << strMonth << "-"	<< strDay << endl;
-		//cout << strHour << ":" << strMinute << ":" << strSecond << endl;
-		//cout << temp << endl;
-		//cout << quality << endl;
-		
-		cout << year1 << endl;
-		
-	//	cout << "hello1" << endl;
-		
-	//	if(readYear == year){
-	//		cout << "hello" << endl;
-	//	}
-		if(file){
-			yearCount ++;
-		}
-		
-		//string cool = "1961-01-01";
-		
-		//if(file >> cool){
-			//break;}
+		getline(file, strTemp, '\n');
+		  
+		// object from the class stringstream 
+		//making strReadYear into an integer readYear
+		//integers declared in the beginning of document
+		stringstream str1(strReadYear); 
+		str1 >> readYear;
+				
+		//converting strMonth into an integer month
+		stringstream str2(strMonth);
+		str2 >> month;
+				
+		//converting strDay into an integer day
+		stringstream str3(strDay);
+		str3 >> day;
+				
+		//converting strHour into an integer hour
+		stringstream str4(strHour);
+		str4 >> hour;
+				
+		//converting strMinute into an integer minute
+		stringstream str5(strMinute);
+		str5 >> minute;
+				
+		//converting strSecond into an integer second
+		stringstream str6(strSecond);
+		str6 >> second;
+				
+		//converting strTemp into a double temp
+		stringstream str7(strTemp);
+		str7 >> temp;
+				
+		cout << "\n" << readYear << "-" << month << "-" << day << endl;
+		cout << hour << ":" << minute << ":" << second << endl;
+		cout << temp << endl;
+	
 	}
 	
 	file.close();
