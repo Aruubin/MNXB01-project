@@ -1,0 +1,7 @@
+02/11:
+Orginations and setting up git. 
+04/11:
+Tried to get date, time and temperature from data file. Did not finish.
+05/11:
+Managed to get read in the file. The average year temperature was obtained,
+but still stored in a local variable in constructor.

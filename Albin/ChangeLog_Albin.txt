@@ -1,0 +1,3 @@
+
+4/11: Creating rough outline for reading the data into more manegable 
+	formats, with objects in a tree structure
