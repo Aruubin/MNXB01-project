@@ -2,8 +2,10 @@
 
 2018-11-04  >>>> Try to extract required data by C++
 
-2018-11-05  >>>> Using Bash scripting for extracting year,month,day,time and temperature data. Except temperature data all the other data looks fine so for temperature data I do some manipulation by c++ to make them suitable for root histogram
+2018-11-05  >>>> I decide to use Bash for extracting required data from .csv file. I have saved extracted data from .csv file in separated .txt files and they are: year, month, day, time and temperature. Only G data have been extracted and Y data considered as low quality data.
 
+
+2018-11-06  >>>>
 
 
 
