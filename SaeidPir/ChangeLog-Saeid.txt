@@ -1,0 +1,12 @@
+2018-11-02  >>>> Main repository forked and I create my folder and my branch in git for code uploade 
+
+2018-11-04  >>>> Try to extract required data by C++
+
+2018-11-05  >>>> I decide to use Bash for extracting required data from .csv file. I have saved extracted data from .csv file in separated .txt files and they are: year, month, day, time and temperature. Only G data have been extracted and Y data considered as low quality data.
+
+
+2018-11-06  >>>>
+
+
+
+
