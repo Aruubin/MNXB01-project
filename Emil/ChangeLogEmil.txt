@@ -11,3 +11,8 @@ separated in strings, not in integers. Can't get the quality of the data separat
 in the files in a general way. We have problems with cutting off unnecassary text to
 get just the data. I will continue trying to solve this in root while others try in
 different ways.
+
+[06/11/18] Albin worked with separating the text in the data file from the data while
+I converted the separated variables from strings to integers/doubles. I then started
+to think about how to make and plot my histogram.
+

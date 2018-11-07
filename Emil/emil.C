@@ -2,6 +2,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <list>
+#include <numeric>
+#include "Data_trimming.C" //File with function usebash() that executes bash script
+//Data_trimming.sh that cuts the dataset I've chosen to not contain any text.
 
 using namespace std;
 
@@ -21,7 +25,6 @@ void each_day(Int_t year){
 	string strMinute;
 	string strSecond;
 	string strTemp;
-	string quality;
 	
 	Int_t readYear = -1;
 	Int_t month = -1;
@@ -31,9 +34,23 @@ void each_day(Int_t year){
 	Int_t second = -1;
 	Double_t temp = -1.0;
 	
+	list<double> Templist;
+	string Ymd = "placeholder";
+	string ymd = "Datestring";
+	Double_t avgTemp = 0.0;
+	Double_t lastTemp = 0.0;
+	Int_t lastDay = -1;
+	
 	string helpString; //help variable
+	
+	//create histogram that I will fill with data values
+	TH1D* hDat = new TH1D("hDat", "; Day of year; Temperature [#circC]", 
+			  365, 0, 365);
 
-	ifstream file("smhitest.csv");
+	usebash(); //calling of function usebash() that creates a new textfile
+	//nicedata.csv without any text in it.
+	
+	ifstream file("nicedata.csv");
 	
 	while(file){
 			
@@ -46,7 +63,7 @@ void each_day(Int_t year){
 		getline(file, strSecond, ';');
 		getline(file, strTemp, '\n');
 		  
-		// object from the class stringstream 
+		//object from the class stringstream 
 		//making strReadYear into an integer readYear
 		//integers declared in the beginning of document
 		stringstream str1(strReadYear); 
@@ -75,14 +92,44 @@ void each_day(Int_t year){
 		//converting strTemp into a double temp
 		stringstream str7(strTemp);
 		str7 >> temp;
-				
-		cout << "\n" << readYear << "-" << month << "-" << day << endl;
-		cout << hour << ":" << minute << ":" << second << endl;
-		cout << temp << endl;
-	
+		
+		//if the entered year is the same as the year being read of the file, enter if statement
+		if(year==readYear){	
+
+			ymd = strReadYear + strMonth + strDay;
+			
+			//if the date being read is the same as the previous read date, enter if statement
+			if(ymd==Ymd){
+				Templist.push_back(temp); //temperatures of the same day is added to a list
+			}
+			
+			//when the next date is read enter else where the average temperature for the previous
+			//day is calculated and the list of temparatures is cleared and to which the current
+			//date's temperature is added.
+			else{
+				avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
+				Int_t len = Templist.size();
+				Templist.clear();
+				Templist.push_back(temp);
+				if(len != 0){
+					hDat->SetBinContent(day, avgTemp);
+				}
+			}
+			Ymd=ymd;
+			lastTemp=temp;
+			lastDay = day;	
+		}
 	}
 	
 	file.close();
+	
+	//calculate avgTemp for the last read date
+	avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
+	hDat->SetBinContent(lastDay, avgTemp);
+	
+	TCanvas* c1 = new TCanvas("c1", "v2 canvas", 900, 600);
+	hDat->Draw();
+
 }
 
 
