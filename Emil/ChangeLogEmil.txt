@@ -22,3 +22,8 @@ year. I also added standard deviation values to each mean inside the loops that
 determine the mean values. Continued to modify the code to be able to plot the
 histogram.
 
+[08/11/18] Fixed a problem with plotting, I had used the variable "day" as bins but
+this variable only ranges between 0-31. Therefore I implemented a new variable
+"dayCounter" that increases after every read date making it possible to draw the
+histogram with temperature on the y-axis and days/bins on the x-axis.
+
