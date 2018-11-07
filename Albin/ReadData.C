@@ -37,6 +37,9 @@ void each_day(Int_t year){
 	
 	list<double> Templist;
 	string Ymd = "placeholder";
+	string ymd = "Datestring";
+	Double_t avgTemp = 0;
+	Double_t lastTemp = 0;
 	
 	string helpString; //help variable
 	
@@ -90,27 +93,39 @@ void each_day(Int_t year){
 		
 		if(readYear == year and month==7){
 			//For measurements of the same day, the average temperature is added to the histogram
-			string ymd = strReadYear + strMonth + strDay;
+			ymd = strReadYear + strMonth + strDay;
 			
-			//First gives a -nan due to the list first being empty. Nothing prompts the final avg for day 31 to be calculated
+			//Nothing prompts the final avg for day 31 to be calculated
 			if(ymd==Ymd){Templist.push_back(temp);}
 			
 			else{
-				Double_t avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
+				avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
 				hTemp->Fill(avgTemp);
 				Int_t len = Templist.size();
 				Templist.clear();
 				Templist.push_back(temp);
-				cout<<day-1<<endl;
-				cout<<avgTemp<<endl;
-				cout<<len<<endl<<endl;
+				if(day != 1){
+					cout<<day-1<<endl;
+					cout<<avgTemp<<endl;
+					cout<<len<<endl<<endl;
+				}
 			}
 			Ymd=ymd;
-			
+			lastTemp=temp;
 			
 		}
 	
 	}
+	//calculate and print avgTemp for the last investigated day
+	if(ymd==Ymd){
+		avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
+		hTemp->Fill(avgTemp);
+		cout<<day<<endl;
+		cout<<avgTemp<<endl;
+	}
+		
+	else{hTemp->Fill(lastTemp);}
+	
 	
 	file.close();
 }
