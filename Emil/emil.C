@@ -16,8 +16,9 @@ using namespace std;
 #include <TCanvas.h> // canvas object
 
 void each_day(Int_t year){
-	
-	Int_t yearCount = 0; //counter
+
+	Int_t dayCounter = 1;
+	Int_t dayCounter1 = -1;
 	string strReadYear;
 	string strMonth;
 	string strDay;
@@ -119,13 +120,13 @@ void each_day(Int_t year){
 				
 				if(len != 0){
 					
-					hDat->SetBinContent(day, avgTemp);
-					hDat->SetBinError(day, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
+					hDat->SetBinContent(dayCounter, avgTemp);
+					//hDat->SetBinError(dayCounter, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
 					avgList.clear();
+					dayCounter++;
 				}
 			}
 			Ymd = ymd;
-			lastDay = day;	
 		}
 	}
 	
@@ -133,14 +134,14 @@ void each_day(Int_t year){
 	
 	//calculate avgTemp for the last read date
 	avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
-	hDat->SetBinContent(lastDay, avgTemp);
+	hDat->SetBinContent(dayCounter, avgTemp);
 	for(Int_t i = 0; i < Templist.size(); ++i){
 		avgList.push_back(pow((Templist[i]-avgTemp), 2.0));
 	}
-	hDat->SetBinError(day, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
+	//hDat->SetBinError(dayCounter, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
 	
 	TCanvas* c1 = new TCanvas("c1", "v2 canvas", 900, 600);
-	hDat->Draw();
+	hDat->Draw("E");
 
 }
 
