@@ -16,3 +16,9 @@ different ways.
 I converted the separated variables from strings to integers/doubles. I then started
 to think about how to make and plot my histogram.
 
+[07/11/18] Incorporated code that determines mean values for each day, which is
+important since I am to plot the mean temperature values for each day for an entire
+year. I also added standard deviation values to each mean inside the loops that
+determine the mean values. Continued to modify the code to be able to plot the
+histogram.
+

@@ -34,7 +34,8 @@ void each_day(Int_t year){
 	Int_t second = -1;
 	Double_t temp = -1.0;
 	
-	list<double> Templist;
+	vector<double> Templist;
+	vector<double> avgList;
 	string Ymd = "placeholder";
 	string ymd = "Datestring";
 	Double_t avgTemp = 0.0;
@@ -109,14 +110,21 @@ void each_day(Int_t year){
 			else{
 				avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
 				Int_t len = Templist.size();
+				
+				for(Int_t i = 0; i < len; ++i){
+					avgList.push_back(pow((Templist[i]-avgTemp), 2.0));
+				}
 				Templist.clear();
 				Templist.push_back(temp);
+				
 				if(len != 0){
+					
 					hDat->SetBinContent(day, avgTemp);
+					hDat->SetBinError(day, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
+					avgList.clear();
 				}
 			}
-			Ymd=ymd;
-			lastTemp=temp;
+			Ymd = ymd;
 			lastDay = day;	
 		}
 	}
@@ -126,6 +134,10 @@ void each_day(Int_t year){
 	//calculate avgTemp for the last read date
 	avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
 	hDat->SetBinContent(lastDay, avgTemp);
+	for(Int_t i = 0; i < Templist.size(); ++i){
+		avgList.push_back(pow((Templist[i]-avgTemp), 2.0));
+	}
+	hDat->SetBinError(day, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
 	
 	TCanvas* c1 = new TCanvas("c1", "v2 canvas", 900, 600);
 	hDat->Draw();
