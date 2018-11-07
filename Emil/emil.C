@@ -121,7 +121,9 @@ void each_day(Int_t year){
 				if(len != 0){
 					
 					hDat->SetBinContent(dayCounter, avgTemp);
-					//hDat->SetBinError(dayCounter, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
+					hDat->SetBinError(dayCounter, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
+					Double_t error = hDat->GetBinError(dayCounter);
+					cout << "Day: " << dayCounter << ", " << year << "-" << month << "-" << day << " Error: " << sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)) << endl;
 					avgList.clear();
 					dayCounter++;
 				}
@@ -134,13 +136,17 @@ void each_day(Int_t year){
 	
 	//calculate avgTemp for the last read date
 	avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
-	hDat->SetBinContent(dayCounter, avgTemp);
 	for(Int_t i = 0; i < Templist.size(); ++i){
 		avgList.push_back(pow((Templist[i]-avgTemp), 2.0));
 	}
-	//hDat->SetBinError(dayCounter, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
-	
-	TCanvas* c1 = new TCanvas("c1", "v2 canvas", 900, 600);
+	hDat->SetBinContent(dayCounter, avgTemp);
+	hDat->SetBinError(dayCounter, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
+	Double_t error = hDat->GetBinError(dayCounter);
+	cout << "Day: " << dayCounter << ", " << year << "-" << month << "-" << day << " Error: " << sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)) << endl;
+	TCanvas* c1 = new TCanvas("c1", "TempEachDay", 900, 600);
+	//hDat->SetLineColor(kGreen);
+	hDat->SetEntries(365);
+	hDat->SetLineWidth(2);
 	hDat->Draw("E");
 
 }
