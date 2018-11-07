@@ -1,7 +1,7 @@
 
 # DO NOT DELETE
 
-./ReadData_C.so: Data_trimming.C /usr/include/root/TF1.h
+./ReadData_C.so: DataTrimVisby.C /usr/include/root/TF1.h
 ./ReadData_C.so: /usr/include/root/TFormula.h /usr/include/root/TNamed.h
 ./ReadData_C.so: /usr/include/root/TObject.h /usr/include/root/Rtypes.h
 ./ReadData_C.so: /usr/include/root/RConfig.h /usr/include/root/RVersion.h

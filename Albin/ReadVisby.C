@@ -5,7 +5,7 @@
 #include <list>
 #include <numeric>
 
-#include "Data_trimming.C"
+#include "DataTrimVisby.C"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ using namespace std;
 #include <TMath.h>   // math functions
 #include <TCanvas.h> // canvas object
 
-void each_day(Int_t year){
+void Visby_hist(){
 	
 	Int_t yearCount = 0; //counter
 	string strReadYear;
@@ -43,7 +43,7 @@ void each_day(Int_t year){
 	
 	string helpString; //help variable
 	
-	TH1D* hTemp = new TH1D("hTemp", "Temperature as Visby; temperature [deg]; Counts", 
+	TH1D* hVisby = new TH1D("hTemp", "Temperature at Visby; temperature [deg]; Counts", 
 			1000, 0, 40);
 	
 	usebash();
@@ -91,7 +91,7 @@ void each_day(Int_t year){
 		stringstream str7(strTemp);
 		str7 >> temp;
 		
-		if(readYear == year and month==7){
+		if(month==7){
 			//For measurements of the same day, the average temperature is added to the histogram
 			ymd = strReadYear + strMonth + strDay;
 			
@@ -100,14 +100,11 @@ void each_day(Int_t year){
 			
 			else{
 				avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
-				hTemp->Fill(avgTemp);
 				Int_t len = Templist.size();
 				Templist.clear();
 				Templist.push_back(temp);
-				if(day != 1){
-					cout<<day-1<<endl;
-					cout<<avgTemp<<endl;
-					cout<<len<<endl<<endl;
+				if(len != 0){
+					hVisby->Fill(avgTemp);
 				}
 			}
 			Ymd=ymd;
@@ -117,17 +114,15 @@ void each_day(Int_t year){
 	
 	}
 	//calculate and print avgTemp for the last investigated day
-	if(ymd==Ymd){
-		avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
-		hTemp->Fill(avgTemp);
-		cout<<day<<endl;
-		cout<<avgTemp<<endl;
-	}
-		
-	else{hTemp->Fill(lastTemp);}
+	avgTemp=accumulate(Templist.begin(), Templist.end(), 0.0)/(Templist.size());
+	hVisby->Fill(avgTemp);
 	
 	
 	file.close();
+	
+	hVisby->SetMinimum(0);
+	hVisby->Draw();
+	
 }
 
 

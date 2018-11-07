@@ -5,7 +5,7 @@
 //Use the bash script to trim the data file
 void usebash()
 {
-	system("./Data_trimming.sh");
+	system("./DataTrimVisby.sh");
 }
 
 
