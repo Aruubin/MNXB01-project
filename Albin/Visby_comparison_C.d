@@ -60,7 +60,8 @@
 ./Visby_comparison_C.so: /usr/include/root/TDatime.h
 ./Visby_comparison_C.so: /usr/include/root/TUUID.h /usr/include/root/TRint.h
 ./Visby_comparison_C.so: /usr/include/root/TApplication.h
-./Visby_comparison_C.so: /usr/include/root/TApplicationImp.h ReadVisby.C
-./Visby_comparison_C.so: DataTrimVisby.C rootlogon_Visby.C
+./Visby_comparison_C.so: /usr/include/root/TApplicationImp.h
+./Visby_comparison_C.so: /usr/include/root/THStack.h ReadVisby.C
+./Visby_comparison_C.so: DataTrimVisby.C ReadBoras.C DataTrimBoras.C
 ./Visby_comparison_C.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 Visby_comparison_C__ROOTBUILDVERSION= 5.34/30

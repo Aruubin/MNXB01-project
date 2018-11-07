@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 //Use the bash script to trim the data file
-void usebash()
+void trimVisby()
 {
 	system("./DataTrimVisby.sh");
 }

@@ -7,3 +7,6 @@ is decided along with the data structure using git.
 into objects. These objects are then planned to be put in a tree. 
 From these universal functions, everyone can easily gain the desired 
 data for the different tasks.
+
+7/11: Data reading finished, with the focus being on the histograms
+correlating to each task assigned to an individual.

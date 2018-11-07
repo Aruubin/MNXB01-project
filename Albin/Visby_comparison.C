@@ -7,9 +7,10 @@
 #include <TCanvas.h> // canvas object
 #include <TROOT.h>
 #include <TRint.h>
+#include <THStack.h>
 
 #include "ReadVisby.C"
-#include "rootlogon_Visby.C"
+#include "ReadBoras.C"
 
 using namespace std;
 
@@ -28,9 +29,22 @@ void Visby_comparison(){
 	
 	gROOT->ProcessLine(".L DataTrimVisby.C+");
 	gROOT->ProcessLine(".L ReadVisby.C+");
+	gROOT->ProcessLine(".L DataTrimBoras.C+");
+	gROOT->ProcessLine(".L ReadBoras.C+");
 	
-	TCanvas* c1 = new TCanvas("c1", "Temp canvas", 900, 600);
+	TCanvas* c1 = new TCanvas("c1", "c1", 900, 600);
 	
 	Visby_hist();
+	Boras_hist();
+	
+	THStack *hs = new THStack("hs","");
+	hVisby->SetFillColor(kRed);
+	hs->Add(hVisby);
+	hBoras->SetFillColor(kGreen);
+	hs->Add(hBoras)
+	
+	TCanvas *cs = new TCanvas("cs","cs",10,10,700,900);
+	cs->cd; hs->Draw("nostack"); T.DrawTextNDC(.5,.95,"Comparison of Visby and Boras");
+	
 	
 }

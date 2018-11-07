@@ -1,7 +1,7 @@
 
 # DO NOT DELETE
 
-./ReadVisby_C.so: DataTrimVisby.C /usr/include/root/TF1.h
+./ReadVisby_C.so: DataTrimVisby.C DataTrimBoras.C /usr/include/root/TF1.h
 ./ReadVisby_C.so: /usr/include/root/TFormula.h /usr/include/root/TNamed.h
 ./ReadVisby_C.so: /usr/include/root/TObject.h /usr/include/root/Rtypes.h
 ./ReadVisby_C.so: /usr/include/root/RConfig.h /usr/include/root/RVersion.h
@@ -35,6 +35,9 @@
 ./ReadVisby_C.so: /usr/include/root/Buttons.h /usr/include/root/TQObject.h
 ./ReadVisby_C.so: /usr/include/root/TAttBBox2D.h /usr/include/root/TPoint.h
 ./ReadVisby_C.so: /usr/include/root/TAttCanvas.h
-./ReadVisby_C.so: /usr/include/root/TCanvasImp.h
+./ReadVisby_C.so: /usr/include/root/TCanvasImp.h /usr/include/root/TRint.h
+./ReadVisby_C.so: /usr/include/root/TApplication.h
+./ReadVisby_C.so: /usr/include/root/TApplicationImp.h
+./ReadVisby_C.so: /usr/include/root/THStack.h
 ./ReadVisby_C.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 ReadVisby_C__ROOTBUILDVERSION= 5.34/30
