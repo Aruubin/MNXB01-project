@@ -123,7 +123,7 @@ void each_day(Int_t year){
 					hDat->SetBinContent(dayCounter, avgTemp);
 					hDat->SetBinError(dayCounter, sqrt((1/len)*accumulate(avgList.begin(), avgList.end(), 0.0)));
 					Double_t error = hDat->GetBinError(dayCounter);
-					cout << "Day: " << dayCounter << ", " << year << "-" << month << "-" << day << " Error: " << sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)) << endl;
+					cout << "Error: " << error << endl;
 					avgList.clear();
 					dayCounter++;
 				}
@@ -142,12 +142,10 @@ void each_day(Int_t year){
 	hDat->SetBinContent(dayCounter, avgTemp);
 	hDat->SetBinError(dayCounter, sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
 	Double_t error = hDat->GetBinError(dayCounter);
-	cout << "Day: " << dayCounter << ", " << year << "-" << month << "-" << day << " Error: " << sqrt((1/Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)) << endl;
-	TCanvas* c1 = new TCanvas("c1", "TempEachDay", 900, 600);
-	//hDat->SetLineColor(kGreen);
-	hDat->SetEntries(365);
+	cout << "Error: " << error << endl;
+	TCanvas* c1 = new TCanvas("c1", "TempEachDay", 1920, 1080);
 	hDat->SetLineWidth(2);
-	hDat->Draw("E");
+	hDat->Draw();
 
 }
 

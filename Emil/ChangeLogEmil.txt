@@ -27,3 +27,7 @@ this variable only ranges between 0-31. Therefore I implemented a new variable
 "dayCounter" that increases after every read date making it possible to draw the
 histogram with temperature on the y-axis and days/bins on the x-axis.
 
+[09/11/18] Worked on making the error bars work. As of now the associated errors to
+every average temperature value is zero, even though I've used SetBinError(). If I
+don't specify an error it uses 
+
