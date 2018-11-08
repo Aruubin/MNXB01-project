@@ -1,0 +1,151 @@
+#include <iostream>
+#include <stdio.h>
+#include <ctype.h>
+#include <math.h>
+#include <stdlib.h>
+#include <fstream>
+#include <string>
+#include <cstdio>
+#include <sstream>
+
+using namespace std;
+
+// Lund weather assesment
+
+// import year data into c++ in year[] char format
+
+
+int main()
+{
+    
+    int x1=57019, x2=5;
+    double data[x1][x2], ColdestDay[55][5]={0}, WarmestDay[55][5]={0};
+    
+    /// Year
+    ifstream input0("year.csv");
+    for (int i=0 ; i<x1 ; i++)
+    {
+        input0 >> data[i][0];
+    }
+    
+    /// Month
+    ifstream input1("month.csv");
+    for (int i=0 ; i<x1 ; i++)
+    {
+        input1 >> data[i][1];
+    }
+    
+    /// Day
+    ifstream input2("day.csv");
+    for (int i=0 ; i<x1 ; i++)
+    {
+        input2 >> data[i][2];
+    }
+    
+    /// time
+    ifstream input3("time.csv");
+    for (int i=0 ; i<x1 ; i++)
+    {
+        input3 >> data[i][3];
+    }
+    
+    /// temperature
+    ifstream input4("temperature_01.csv");
+    for (int i=0 ; i<x1 ; i++)
+    {
+        input4 >> data[i][4];
+    }
+    
+    /// printing array for control
+    for (int i1=0 ; i1<x1 ; ++i1)
+    {
+        for (int i2=0 ; i2<5 ; ++i2)
+        {
+            if (i1==(x1-1))
+                cout << data[i1][i2] << " ";
+        }
+    }
+    
+    /// Find Coldest and Warmest day of each year
+    
+    for (int i3=0; i3<55 ; ++i3)
+    {
+        for (int i1=0 ; i1<x1 ; ++i1)
+        {
+            for (int i2=0 ; i2<x2 ; ++i2)
+            {
+                if (data[i1][0]==(1961+i3))
+                {
+                    if (data[i1][4]<ColdestDay[i3][4])
+                    {
+                        ColdestDay[i3][0]=data[i1][0];
+                        ColdestDay[i3][1]=data[i1][1];
+                        ColdestDay[i3][2]=data[i1][2];
+                        ColdestDay[i3][3]=data[i1][3];
+                        ColdestDay[i3][4]=data[i1][4];
+
+                    }
+                    else if (data[i1][4]>WarmestDay[i3][4])
+                    {
+                        WarmestDay[i3][0]=data[i1][0];
+                        WarmestDay[i3][1]=data[i1][1];
+                        WarmestDay[i3][2]=data[i1][2];
+                        WarmestDay[i3][3]=data[i1][3];
+                        WarmestDay[i3][4]=data[i1][4];
+
+                    }
+                }
+            }
+        }
+    }
+    
+
+    // export file containing Coldest and Warmest day of each year to a .txt file
+    ofstream out1( "ColdestDays.txt" );
+    if( out1.is_open() )
+    {
+        for (int i1=0 ; i1<55 ; ++i1)
+        {
+            for (int i2=0 ; i2<5 ; ++i2)
+            {
+                out1 << ColdestDay[i1][i2] << " ";
+            }
+                out1 << "\n";
+        }
+        out1.close();
+    }
+    
+    
+    // export file containing Warmest day of each year to a .txt file
+    ofstream out2( "WarmestDays.txt" );
+    if( out2.is_open() )
+    {
+        for (int i1=0 ; i1<55 ; ++i1)
+        {
+            for (int i2=0 ; i2<5 ; ++i2)
+            {
+                out2 << WarmestDay[i1][i2] << " ";
+            }
+            out2 << "\n";
+        }
+        out1.close();
+    }
+
+    
+    //////  test print
+    cout << "\n";
+    cout << "ColdestDay is: ";
+    for (int i1=0 ; i1<5 ; ++i1)
+    {
+        cout << ColdestDay[10][i1] << "|";
+    }
+    cout << "\n";
+    cout << "WarmestDay is: ";
+    for (int i1=0 ; i1<5 ; ++i1)
+    {
+        cout << WarmestDay[10][i1] << "|";
+    }
+    cout << "\n";
+    return 0;
+}
+

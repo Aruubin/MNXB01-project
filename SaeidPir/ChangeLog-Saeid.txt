@@ -1,11 +1,30 @@
-2018-11-02  >>>> Main repository forked and I create my folder and my branch in git for code uploade 
+2018-11-02  >>>> 
+Main repository forked, I create my folder and my branch in git for code uploade 
 
-2018-11-04  >>>> Try to extract required data by C++
+2018-11-04  >>>> 
+First I tried to extract required data by C++ from "smhi-opendata_Lund.csv" files. 
+Then I findout it is not much easy so I decide to use Bash for useful data extraction.
 
-2018-11-05  >>>> I decide to use Bash for extracting required data from .csv file. I have saved extracted data from .csv file in separated .txt files and they are: year, month, day, time and temperature. Only G data have been extracted and Y data considered as low quality data.
+2018-11-05  >>>> 
+My Bash script for extracting useful data out of "smhi-opendata_Lund.csv" is ready. 
+My Bash script filr is uploaded and file name is "Extract data by Bash.sh". I have 
+saved extracted data from "smhi-opendata_Lund.csv" file in separated .txt files and 
+they are: year.txt, month.txt, day.txt, time.txt and temperature_01.txt. Only G data 
+have been extracted and Y data considered as low quality data.
 
 
-2018-11-06  >>>>
+2018-11-07  >>>>
+Based on clean data extracted by Bash I did Cpp coding in order to prepare proper data 
+required for caldest and warmest days in the year histogram. In project Instruction file 
+a typical output example is presented as Figure 3. Cpp file coding is uploaded as 
+"Saeid_Cpp_code.C". Output of my Cpp coding are saved and uploaded as "WarmestDays.txt", 
+"WarmestDays-Hist-Fig3.txt", "ColdestDays.txt" and "ColdestDays-Hist-Fig3.txt". As a 
+priliminary test and before ploting data by Root warmest and coldest data are ploted by 
+Excel in "Priliminary data Excel test.xlsx" which is also uploaded.
+
+
+2018-11-08  >>>>
+
 
 
 
