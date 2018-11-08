@@ -12,10 +12,17 @@ class tempTrender {
 	//void tempOnDay(int dateToCalculate); //Make a histogram of the temperature on this date
 	//void tempPerDay(); //Make a histogram of the average temperature of each day of the year
 	//void hotCold(); //Make a histogram of the hottest and coldest day of the year
-	//void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
+	void tempPerYear(int yearToExtrapolate); //Make a histogram of average temperature per year, then fit and extrapolate to the given year
 
 	private:
-	
+	Int_t startYear;
+	Int_t endYear;
+	Int_t numberOfYears;
+	static const Int_t maxNumberOfYears = 100;
+	Double_t yearSum[maxNumberOfYears];
+	Double_t yearCount[maxNumberOfYears];
+	Double_t yearAvg[maxNumberOfYears];
+	Double_t meanYearAvg;
 };
 
 #endif
