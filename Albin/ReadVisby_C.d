@@ -38,6 +38,7 @@
 ./ReadVisby_C.so: /usr/include/root/TCanvasImp.h /usr/include/root/TRint.h
 ./ReadVisby_C.so: /usr/include/root/TApplication.h
 ./ReadVisby_C.so: /usr/include/root/TApplicationImp.h
-./ReadVisby_C.so: /usr/include/root/THStack.h
+./ReadVisby_C.so: /usr/include/root/THStack.h /usr/include/root/TLegend.h
+./ReadVisby_C.so: /usr/include/root/TPave.h /usr/include/root/TBox.h
 ./ReadVisby_C.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 ReadVisby_C__ROOTBUILDVERSION= 5.34/30
