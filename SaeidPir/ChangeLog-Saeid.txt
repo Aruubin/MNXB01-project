@@ -23,7 +23,7 @@ priliminary test and before ploting data by Root warmest and coldest data are pl
 Excel in "Priliminary data Excel test.xlsx" which is also uploaded.
 
 
-2018-11-08  >>>>
+2018-11-09  >>>>
 Prepared data in previous steps are ploted by Histogram, Only fitting is not complited yet.
 
 
