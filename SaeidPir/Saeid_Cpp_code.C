@@ -1,8 +1,8 @@
-#include <iostream>
-#include <stdio.h>
-#include <ctype.h>
-#include <math.h>
-#include <stdlib.h>
+#include <iostream>    //this code is for C++ compiler not for root
+#include <stdio.h>		//this code is for C++ compiler not for root
+#include <ctype.h>		//this code is for C++ compiler not for root
+#include <math.h>		//this code is for C++ compiler not for root
+#include <stdlib.h>		//this code is for C++ compiler not for root
 #include <fstream>
 #include <string>
 #include <cstdio>
