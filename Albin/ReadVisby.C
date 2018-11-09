@@ -266,8 +266,6 @@ void Visby_hist(Int_t ChosenMonth){
 	legend->AddEntry(fitBoras,"Gaussian fit for the Boras temperature","l");
 	legend->Draw();
 	
-	//The figure is saved for use in report and presentation
-	c1->SaveAs("VisbyMay.jpg");
 }
 
 
