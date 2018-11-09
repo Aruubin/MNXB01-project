@@ -24,7 +24,7 @@ Excel in "Priliminary data Excel test.xlsx" which is also uploaded.
 
 
 2018-11-08  >>>>
-
+Prepared data in previous steps are ploted by Histogram, Only fitting is not complited yet.
 
 
 
