@@ -7,3 +7,5 @@ Managed to get read in the file. The average year temperature was obtained,
 but still stored in a local variable in constructor.
 7/11:
 Plotted the histogram with deviation from mean. 
+10/11:
+Added moving average for 5 years and a fitted arctan function. 
