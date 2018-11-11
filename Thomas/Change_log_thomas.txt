@@ -9,3 +9,7 @@ but still stored in a local variable in constructor.
 Plotted the histogram with deviation from mean. 
 10/11:
 Added moving average for 5 years and a fitted arctan function. 
+11/11:
+Added a box with names for 5-year-mean and the fitted function. Also 
+saved various wanted graphs. Wrote the report and prepered the 
+power point slides. 

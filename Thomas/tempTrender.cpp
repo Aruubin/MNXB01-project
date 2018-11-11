@@ -9,6 +9,8 @@ using namespace std;
 #include <TGraph.h>
 #include <THStack.h>
 #include <TMath.h>
+#include <TCanvas.h>
+#include <TLegend.h>
 
 tempTrender::tempTrender(string filePath) {
 	startYear = -1;
@@ -144,6 +146,15 @@ void tempTrender::tempPerYear(int yearToExtrapolate) //Make a histogram of avera
 	
 	cout << "Year "<< yearToExtrapolate << endl << "Calculated temperature: " <<
 	  fitFunc->Eval(yearToExtrapolate) << endl;
+	  
+	//Adds a box with names. 
+	TLegend* legend = new TLegend(0.2, 0.775, 0.4, 0.925);
+	legend->SetHeader("Yearly average temperature of Lund");
+	legend->AddEntry(fitFunc, "A fitted arctan function");
+	legend->AddEntry(gFiveMean, "Moving average over 5 years");
+	
+	//Creates an canvas
+	TCanvas* c1 = new TCanvas("c1", "Year average", 900, 600);
 	
 	//Plotting settings.
 	hYearAvg->SetFillColor(2); //Red
@@ -153,7 +164,7 @@ void tempTrender::tempPerYear(int yearToExtrapolate) //Make a histogram of avera
 	thstack->Add(hYearAvg);
 	thstack->Add(hMeanAvg);
 	thstack->Add(hWhite);
-	thstack->SetMinimum(5.5);
+	thstack->SetMinimum(3.0);
 	thstack->Draw("nostack");
 	thstack->GetXaxis()->SetTitle("Year");
 	thstack->GetYaxis()->SetTitle("Average Temperature [#circC]");
@@ -162,4 +173,6 @@ void tempTrender::tempPerYear(int yearToExtrapolate) //Make a histogram of avera
 	fitFunc->SetLineColor(8);
 	fitFunc->SetLineWidth(3);
 	fitFunc->Draw("SAME C");
+	legend->Draw();
+	c1->SaveAs("yearAvg_Lund.png");
 }
