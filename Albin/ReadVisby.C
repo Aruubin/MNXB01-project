@@ -242,7 +242,7 @@ void Visby_hist(Int_t ChosenMonth){
 	gStyle->SetPadLeftMargin(0.16);
 	
 	//In order to compare the two histograms, they are printed on the same canvas
-	TCanvas* c1 = new TCanvas("c1","Visby", 1500, 800);
+	TCanvas* cVis = new TCanvas("cVis","Visby", 1500, 800);
 	hVisby->SetLineColor(2);
 	hBoras->SetLineColor(4);
 	hVisby->Draw();

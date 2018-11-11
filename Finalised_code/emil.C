@@ -139,7 +139,7 @@ void each_day(Int_t year){
 	}
 	hDat->SetBinContent(dayCounter, avgTemp);
 	hDat->SetBinError(dayCounter, sqrt((1./Templist.size())*accumulate(avgList.begin(), avgList.end(), 0.0)));
-	TCanvas* c1 = new TCanvas("c1", "TempEachDay", 1920, 1080);
+	TCanvas* c2 = new TCanvas("c2", "TempEachDay", 1920, 1080);
 	hDat->SetLineWidth(2.5);
 	hDat->Draw();
 

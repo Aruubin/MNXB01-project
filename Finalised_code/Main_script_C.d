@@ -43,6 +43,8 @@
 ./Main_script_C.so: /usr/include/root/TApplication.h
 ./Main_script_C.so: /usr/include/root/TApplicationImp.h
 ./Main_script_C.so: /usr/include/root/THStack.h /usr/include/root/TLegend.h
-./Main_script_C.so: /usr/include/root/TPave.h /usr/include/root/TBox.h
+./Main_script_C.so: /usr/include/root/TPave.h /usr/include/root/TBox.h emil.C
+./Main_script_C.so: trimData.C tempTrender.cpp tempTrender.h
+./Main_script_C.so: /usr/include/root/TGraph.h
 ./Main_script_C.so: /usr/include/root/cintdictversion.h /usr/include/root/RVersion.h
 Main_script_C__ROOTBUILDVERSION= 5.34/30

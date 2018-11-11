@@ -9,8 +9,15 @@
 #include <sstream>
 using namespace std;
 
-#include <TH1D.h>
 #include <TF1.h>
+#include <TH1.h>
+#include <TStyle.h>
+#include <TMath.h>
+#include <TCanvas.h> 
+#include <TRint.h>
+#include <THStack.h>
+#include <TLegend.h>
+#include <TNtuple.h>
 ///////////////////////////////////
 ///								///
 ///    Lund weather assesment	///

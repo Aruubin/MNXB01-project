@@ -154,7 +154,7 @@ void tempTrender::tempPerYear(int yearToExtrapolate) //Make a histogram of avera
 	legend->AddEntry(gFiveMean, "Moving average over 5 years");
 	
 	//Creates an canvas
-	TCanvas* c1 = new TCanvas("c1", "Year average", 900, 600);
+	TCanvas* c3 = new TCanvas("c3", "Year average", 900, 600);
 	
 	//Plotting settings.
 	hYearAvg->SetFillColor(2); //Red
@@ -174,5 +174,5 @@ void tempTrender::tempPerYear(int yearToExtrapolate) //Make a histogram of avera
 	fitFunc->SetLineWidth(3);
 	fitFunc->Draw("SAME C");
 	legend->Draw();
-	c1->SaveAs("yearAvg_Lund.png");
+	c3->SaveAs("yearAvg_Lund.png");
 }
