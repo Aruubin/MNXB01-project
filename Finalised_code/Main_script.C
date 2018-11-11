@@ -1,8 +1,9 @@
+#include <string>
 //Here we will include the files used for our tasks and call them
 
 #include "ReadVisby.C"
 #include "emil.C"
-#include "tempTrender.cpp"
+#include "tempTrender.h"
 //#include "SaeidRootFinal.C"
 
 void project(){
