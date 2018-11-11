@@ -11,3 +11,23 @@ separated in strings, not in integers. Can't get the quality of the data separat
 in the files in a general way. We have problems with cutting off unnecassary text to
 get just the data. I will continue trying to solve this in root while others try in
 different ways.
+
+[06/11/18] Albin worked with separating the text in the data file from the data while
+I converted the separated variables from strings to integers/doubles. I then started
+to think about how to make and plot my histogram.
+
+[07/11/18] Incorporated code that determines mean values for each day, which is
+important since I am to plot the mean temperature values for each day for an entire
+year. I also added standard deviation values to each mean inside the loops that
+determine the mean values. Continued to modify the code to be able to plot the
+histogram.
+
+[08/11/18] Fixed a problem with plotting, I had used the variable "day" as bins but
+this variable only ranges between 0-31. Therefore I implemented a new variable
+"dayCounter" that increases after every read date making it possible to draw the
+histogram with temperature on the y-axis and days/bins on the x-axis.
+
+[09/11/18] Worked on making the error bars work. As of now the associated errors to
+every average temperature value is zero, even though I've used SetBinError(). If I
+don't specify an error it uses 
+
