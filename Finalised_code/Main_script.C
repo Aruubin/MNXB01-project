@@ -6,4 +6,9 @@ void project(){
 	
 	Visby_hist(5); //Here the investigation of coastal versus inland climate is done.
 					//In this case, the investigated month is May
+					
+					
+	string pathToFile = "../datasets/smhi-opendata_Lund.csv"; //Put the path to your data file here
+	tempTrender t(pathToFile); //Instantiate your analysis object
+	t.tempPerYear(2050); 
 }
