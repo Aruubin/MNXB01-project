@@ -43,8 +43,6 @@ void each_day(Int_t year){
 	Double_t lastTemp = 0.0;
 	Int_t lastDay = -1;
 	
-	string helpString; //help variable
-	
 	//create histogram that I will fill with data values
 	TH1D* hDat = new TH1D("hDat", "; Day of year; Temperature [#circC]", 
 			  366, 0, 366);
